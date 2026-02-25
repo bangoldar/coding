@@ -12,7 +12,8 @@
                 specSymbols-false
                 )
         - количество паролей за одну генерацию (базовая 1)'''
-import random, string
+import random
+import string
 
 length = 10
 numbers = True
@@ -24,15 +25,15 @@ def settings():
     global length, numbers, letters, specSymbols, quant
     while True:
         choice = input(
-            f'1. length ({length})',
-            f'2. numbers ({numbers})',
-            f'3. letters ({letters})',
-            f'4. specSymbols ({specSymbols})',
-            f'5. quant ({quant})',
-            'press enter to exit'
-            '>>',
-            sep='\n'
+            f'1. length ({length})\n'
+            f'2. numbers ({numbers})\n'
+            f'3. letters ({letters})\n'
+            f'4. specSymbols ({specSymbols})\n'
+            f'5. quant ({quant})\n'
+            f'press enter to exit\n'
+            f'>> '
         )
+
         if choice == '1':
             length = int(input('length: '))
         elif choice == '2':
@@ -42,21 +43,13 @@ def settings():
         elif choice == '4':
             specSymbols = not specSymbols
         elif choice == '5':
-            quant = not quant
+            quant = int(input('quant: '))
         elif choice == '':
             break
         else:
             print('enter valid choice')
-        
-
-        
-        letters = bool(input('letters (true/false): '))
-        specSymbols = input('specSymbols (true/false): ')
-        quant = input('quant: ')
 
 def generate():
-    passwords = ()
-
     actualSymbols = ''
     if numbers:
         actualSymbols += string.digits
@@ -64,27 +57,31 @@ def generate():
         actualSymbols += string.ascii_letters
     if specSymbols:
         actualSymbols += string.punctuation
-    for _ in range(quant): # pass 1
+
+    if actualSymbols == '':
+        print('No symbols selected')
+        return
+
+    passwords = []
+
+    for _ in range(quant):
         password = ''
         for _ in range(length):
             password += random.choice(actualSymbols)
-        passwords += password
-    print
+        passwords.append(password)
 
-
-            
-        
-
-   
+    for p in passwords:
+        print(p)
 
 def start():
     while True:
-        choice = input('press 1 for settings, press 2 to generate')
-        
-        if choice == 1:
-            settings() 
-        elif choice == 2:
+        choice = input('press 1 for settings, press 2 to generate, press enter to exit\n>> ')
+        if choice == '1':
+            settings()
+        elif choice == '2':
             generate()
+        elif choice == '':
+            break
         else:
             print('enter valid choice')
 
