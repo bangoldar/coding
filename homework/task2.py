@@ -12,4 +12,4 @@ def check_access(*ages):
     else:
         print('access denied')
 
-check_access(20, 19, 56, 34)
+check_access(18, 48, 109)

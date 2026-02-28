@@ -59,9 +59,8 @@ def generate():
         actualSymbols += string.punctuation
 
     if actualSymbols == '':
-        print('No symbols selected')
-        return
-
+        return print('No symbols selected')
+        
     passwords = []
 
     for _ in range(quant):
