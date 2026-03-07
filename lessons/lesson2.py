@@ -24,11 +24,11 @@ Y n: 5
 
 
 
-# temp = '|{:^10}|{:^5}|'
+temp = '|{:^10}|{:>5}|'
 
-# print('-'*18)
-# print(temp.format('Name','Age'))
-# print('-'*18)
+print('-'*18)
+print(temp.format('Name','Age'))
+print('-'*18)
 
 # for _ in range(5):
 #     print(temp.format(name,age))
@@ -78,7 +78,7 @@ Y n: 5
 
 # get_summ(3,2,1,4)
 
-t = (1,4,7,2,1)
-print(t.count(4))
-print(t.index(1))
-print(t.index(1,1))
+# t = (1,4,7,2,1)
+# print(t.count(4))
+# print(t.index(1))
+# print(t.index(1,1))
